@@ -9,12 +9,16 @@ def generate_launch_description():
 
     # Command-line arguments
 
+    pkg_share = get_package_share_directory("easy_handeye2_demo")
+    kinematics_path = os.path.join(pkg_share, "config", "kinematics.yaml")
+
     moveit_config = (
         MoveItConfigsBuilder("moveit_resources_panda")
         .robot_description(file_path="config/panda.urdf.xacro")
         .robot_description_semantic(file_path="config/panda.srdf")
         .trajectory_execution(file_path="config/gripper_moveit_controllers.yaml")
         .planning_pipelines(pipelines=["ompl", "chomp"])
+        .robot_description_kinematics(file_path=kinematics_path)  # <-- add this line
         .to_moveit_configs()
     )
 

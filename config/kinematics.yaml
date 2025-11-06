@@ -1,0 +1,8 @@
+robot_description_kinematics:
+  panda_arm:
+    kinematics_solver: kdl_kinematics_plugin/KDLKinematicsPlugin
+    kinematics_solver_timeout: 0.1
+    kinematics_solver_attempts: 3
+    goal_joint_tolerance: 1e-5
+    goal_position_tolerance: 1e-5
+    goal_orientation_tolerance: 1e-3
